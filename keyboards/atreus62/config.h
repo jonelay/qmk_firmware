@@ -56,6 +56,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define LOCKING_RESYNC_ENABLE
 
 #define PERMISSIVE_HOLD
+#define RETRO_TAPPING
 
 /* key combination for command */
 #define IS_COMMAND() ( \

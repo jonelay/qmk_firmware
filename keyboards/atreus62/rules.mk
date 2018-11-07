@@ -37,7 +37,7 @@ F_USB = $(F_CPU)
 
 # Bootloader
 #     This definition is optional, and if your keyboard supports multiple bootloaders of
-#     different sizes, comment this out, and the correct address will be loaded 
+#     different sizes, comment this out, and the correct address will be loaded
 #     automatically (+60). See bootloader.mk for all options.
 BOOTLOADER = caterina
 
@@ -58,6 +58,8 @@ NKRO_ENABLE = no            # Nkey Rollover - if this doesn't work, see here: ht
 #MIDI_ENABLE = no            # MIDI controls
 UNICODE_ENABLE = yes         # Unicode
 #BLUETOOTH_ENABLE = yes       # Enable Bluetooth with the Adafruit EZ-Key HID
+KEY_LOCK_ENABLE = yes
+LEADER_ENABLE = yes
 
 # Do not enable SLEEP_LED_ENABLE. it uses the same timer as BACKLIGHT_ENABLE
 SLEEP_LED_ENABLE = no    # Breathing sleep LED during USB suspend

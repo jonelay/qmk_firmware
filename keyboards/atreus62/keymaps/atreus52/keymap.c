@@ -30,9 +30,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     NO, TILD, GRV,  LCBR, RCBR, DQUO,             QUOT, EQL,  PLUS, MINS, QUES, NO, \
     NO, ESC,  TAB,  LPRN, RPRN, BSLS,             SLSH, LEFT, DOWN, UP,   RGHT, NO, \
     NO, TRNS, TRNS, LBRC, RBRC, TRNS,             INS,  PIPE, UNDS, TRNS, TRNS, NO, \
-    NO, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, FN3,  NO
+    , TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, FN3,  NO
   ),
-
   [LOWER] = LAYOUT_kc(
     NO, TRNS, TRNS, TRNS, TRNS, TRNS,             TRNS, TRNS, TRNS, TRNS, TRNS, NO, \
     NO, EXLM, AT,   HASH, DLR,  PERC,             CIRC, AMPR, ASTR, LPRN, RPRN, NO, \
