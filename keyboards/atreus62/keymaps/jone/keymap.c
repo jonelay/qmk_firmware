@@ -23,28 +23,34 @@
 
 #define _______ KC_TRNS
 #define XXXXXXX KC_NO
-#define THUMB_L LT(_UP_L, KC_BSPC)
-#define THUMB_R LT(_UP_R, KC_DEL)
+#define THUMB_L LT(_UP_L, KC_ENTER)
+#define THUMB_R LT(_UP_R, KC_ENTER)
 #define THUMB_B MO(_UP_B)
 #define THUMB_SB MO(_UP_SB)
 #define HOME_L LT(_DN_L, KC_SPACE)
-#define HOME_R LT(_DN_R, KC_ENTER)
+#define HOME_R LT(_DN_R, KC_SPACE)
 #define HOME_B MO(_DN_B)
 #define HOME_SB MO(_DN_SB)
 #define CTL_TAB LCTL_T(KC_TAB)
 #define CTL_QUO RCTL_T(KC_QUOT)
+#define CTL_RHT RCTL_T(KC_RGHT)
 #define GUI_QUO RGUI_T(KC_QUOT)
 #define GUI_ENT RGUI_T(KC_ENT)
+#define GUI_UP RGUI_T(KC_UP)
 #define ALT_TIL LALT_T(KC_GRAVE)
+#define ALT_DWN RALT_T(KC_DOWN)
 #define ALT_DEL RALT_T(KC_DELETE)
 #define SFT_TAB LSFT_T(KC_TAB)
+#define SFT_DEL RSFT_T(KC_DELETE)
+#define SFT_BSP LSFT_T(KC_BSPC)
 #define H_ALT_A LALT_T(KC_A)
 #define H_GUI_E LGUI_T(KC_E)
 #define H_SFT_S LSFT_T(KC_S)
 #define H_CTL_T LCTL_T(KC_T)
 #define H_HYP_G ALL_T(KC_G)
-#define EXT_L LT(_EXTL, KC_LOCK)
-#define EXT_R LT(_EXTR, KC_LOCK)
+#define EXT_L LT(_EXTL, KC_TAB)
+// #define EXT_R LT(_EXTR, KC_DELETE)
+#define EXT_R LT(_EXTR, KC_LEFT)
 #define ALT_LED ALT_T(KC_LEAD)
 #define AGR_LED ALGR_T(KC_LEAD)
 
@@ -67,10 +73,10 @@ void matrix_init_user(void) {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT( /* Colemak= */
     KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                      KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
-    RESET,   KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                      KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, ALT_DEL,
+    ALT_TIL, KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                      KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, ALT_DEL,
     CTL_TAB, KC_A,    KC_R,    KC_S,    KC_T,    KC_G,                      KC_M,    KC_N,    KC_E,    KC_I,    KC_O,    GUI_QUO,
     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                      KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_LSFT,
-    KC_LCTL, KC_LGUI, ALT_LED, EXT_L,   SFT_TAB, HOME_L,  THUMB_L, THUMB_R, HOME_R,  SFT_TAB, EXT_R,  ALT_LED,  KC_RGUI, KC_RCTL
+    KC_LCTL, KC_LGUI, ALT_LED, EXT_L,   SFT_BSP, HOME_L,  THUMB_L, THUMB_R, HOME_R,  SFT_DEL, EXT_R,  ALT_DWN,  GUI_UP, CTL_RHT
   ),
 
   [_UP_R] = LAYOUT(
