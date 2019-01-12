@@ -64,7 +64,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT(  /* Colemak_dh= */
     KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                        KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
     ALT_TIL, KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                        KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, ALT_DEL,
-    CTL_TAB, KC_A,    KC_R,    KC_S,    KC_T,    KC_G,                        KC_M,    KC_N,    KC_E,    KC_I,    KC_O,    KC_QUOT,
+    KC_RCTL, KC_A,    KC_R,    KC_S,    KC_T,    KC_G,                        KC_M,    KC_N,    KC_E,    KC_I,    KC_O,    KC_QUOT,
     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,    THMB_UL,   THMB_UR, KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_LSFT,
                                         SYM_BSP, GUI_TAB,   THMB_DL,   THMB_DR, GUI_TAB, SYM_DEL
     ),
@@ -121,7 +121,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
       _______, _______, KC_WH_U, KC_MS_U, KC_WH_D, KC_BTN2,                   _______, _______, _______, _______, _______, _______,
       _______, _______, KC_MS_L, KC_MS_D, KC_MS_R, KC_BTN1,                   _______, _______, _______, _______, _______, _______,
-      MO(_DNSR), _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+      MO(_DNSR), LCTL((KC_Z)), LCTL((KC_X)), LCTL((KC_C)), LCTL((KC_D)), LCTL(S(KC_V)), _______, _______, _______, _______, _______, _______, _______, _______,
                                           _______, _______, MO(_EX_L), _______, _______, _______
     ),
 
@@ -134,7 +134,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_EX_L] = LAYOUT(
-      LGUI(KC_Q), _______,    LGUI(KC_7), LGUI(KC_8), LGUI(KC_9), _______,                   _______, _______, _______, _______, _______, RESET,
+      LGUI(S(KC_Q)), _______,    LGUI(KC_7), LGUI(KC_8), LGUI(KC_9), _______,                   _______, _______, _______, _______, _______, RESET,
       LGUI(KC_GRV), LGUI(KC_Q), LGUI(KC_4), LGUI(KC_5), LGUI(KC_6), LGUI(KC_B),           _______, _______, _______, _______, _______, _______,
       _______, LCTL(KC_A), LGUI(KC_1), LGUI(KC_2), LGUI(KC_3), _______,                   _______, _______, _______, _______, _______, _______,
       _______, LCTL(KC_Z), LGUI(KC_0), LGUI(KC_C), LGUI(KC_D), _______, _______, _______, _______, _______, _______, _______, _______, _______,
@@ -142,7 +142,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_EX_R] = LAYOUT(
-      _______, _______, _______, _______, _______, _______,                   _______, RGUI(KC_7), RGUI(KC_8), RGUI(KC_9), KC_PAST, RGUI(KC_Q),
+      _______, _______, _______, _______, _______, _______,                   _______, RGUI(KC_7), RGUI(KC_8), RGUI(KC_9), KC_PAST, RGUI(S(KC_Q)),
       _______, _______, _______, _______, _______, _______,                   _______, RGUI(KC_4), RGUI(KC_5), RGUI(KC_6), _______, _______,
       _______, _______, _______, _______, _______, _______,                   _______, RGUI(KC_1), RGUI(KC_2), RGUI(KC_3), _______, _______,
       _______, _______, _______, _______, _______, _______, _______, _______, _______, RGUI(KC_0), RGUI(KC_C), RGUI(KC_D), _______, _______,

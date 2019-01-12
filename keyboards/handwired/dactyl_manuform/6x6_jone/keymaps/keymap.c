@@ -27,7 +27,7 @@
 
   <meta name="viewport" content="width=device-width">
   
-  <title>qmk_firmware_dactylmanuform/dactyl-manuform.h at master · johnisenglish/qmk_firmware_dactylmanuform</title>
+  <title>qmk_firmware_dactylmanuform/keymap.c at master · johnisenglish/qmk_firmware_dactylmanuform</title>
     <meta name="description" content="keyboard controller firmware for Atmel AVR USB family - johnisenglish/qmk_firmware_dactylmanuform">
     <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub">
   <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
@@ -37,10 +37,10 @@
     <meta property="og:image" content="https://avatars2.githubusercontent.com/u/1753038?s=400&amp;v=4" /><meta property="og:site_name" content="GitHub" /><meta property="og:type" content="object" /><meta property="og:title" content="johnisenglish/qmk_firmware_dactylmanuform" /><meta property="og:url" content="https://github.com/johnisenglish/qmk_firmware_dactylmanuform" /><meta property="og:description" content="keyboard controller firmware for Atmel AVR USB family - johnisenglish/qmk_firmware_dactylmanuform" />
 
   <link rel="assets" href="https://assets-cdn.github.com/">
-  <link rel="web-socket" href="wss://live.github.com/_sockets/VjI6MzIxMzg2ODc0OjdjMzkyMjZiY2I5NzBhZDI1MWI3N2NlYjkxZWYwYjc3YjlmZmFjMzM1ZDllZTMwZTE2ZDJmOGZlYjcwMDUxZWE=--21b52de11c9248c35d33ffe967d96acb76744233">
+  <link rel="web-socket" href="wss://live.github.com/_sockets/VjI6MzIxMzg2ODc0OjVlMWMxZWFhM2JlZTRhOGFlZGM0NGJiYjExZWFlZjBlMDUxNjhmNTE3MTg2ZTc1MTA0NTZlOTNiMGZmZGZkZTE=--642c6515fd9b00578140badb7466189544bf13b0">
   <meta name="pjax-timeout" content="1000">
   <link rel="sudo-modal" href="/sessions/sudo_modal">
-  <meta name="request-id" content="B552:124E:394EA51:4D27A5D:5BAA747E" data-pjax-transient>
+  <meta name="request-id" content="B552:124E:394979C:4D1FE3E:5BAA73A0" data-pjax-transient>
 
 
   
@@ -51,7 +51,7 @@
     <meta name="google-site-verification" content="ZzhVyEFwb7w3e0-uOTltm8Jsck2F5StVihD0exw2fsA">
     <meta name="google-site-verification" content="GXs5KoUUkNCoaAZn7wPN-t01Pywp9M3sEjnt_3_ZWPc">
 
-  <meta name="octolytics-host" content="collector.githubapp.com" /><meta name="octolytics-app-id" content="github" /><meta name="octolytics-event-url" content="https://collector.githubapp.com/github-external/browser_event" /><meta name="octolytics-dimension-request_id" content="B552:124E:394EA51:4D27A5D:5BAA747E" /><meta name="octolytics-dimension-region_edge" content="iad" /><meta name="octolytics-dimension-region_render" content="iad" /><meta name="octolytics-actor-id" content="1753038" /><meta name="octolytics-actor-login" content="johnisenglish" /><meta name="octolytics-actor-hash" content="3b897536b7650f8425c6eaf5aeeaccd4a7ef5129defb12869a6e749be31b7cb5" />
+  <meta name="octolytics-host" content="collector.githubapp.com" /><meta name="octolytics-app-id" content="github" /><meta name="octolytics-event-url" content="https://collector.githubapp.com/github-external/browser_event" /><meta name="octolytics-dimension-request_id" content="B552:124E:394979C:4D1FE3E:5BAA73A0" /><meta name="octolytics-dimension-region_edge" content="iad" /><meta name="octolytics-dimension-region_render" content="iad" /><meta name="octolytics-actor-id" content="1753038" /><meta name="octolytics-actor-login" content="johnisenglish" /><meta name="octolytics-actor-hash" content="3b897536b7650f8425c6eaf5aeeaccd4a7ef5129defb12869a6e749be31b7cb5" />
 <meta name="analytics-location" content="/&lt;user-name&gt;/&lt;repo-name&gt;/blob/show" data-pjax-transient="true" />
 
 
@@ -69,7 +69,7 @@
     <meta name="user-login" content="johnisenglish">
 
       <meta name="expected-hostname" content="github.com">
-    <meta name="js-proxy-site-detection-payload" content="ODE2Y2ZmYWE4MzhlNzE0NTY3MDJhN2JkZTExZGIwNTE2MTQ2MDZmZWM4YTUwZjViNTk0ZmE0ZGJhZjEyMWE3M3x7InJlbW90ZV9hZGRyZXNzIjoiNTAuMjQ2LjIwOS4yNDkiLCJyZXF1ZXN0X2lkIjoiQjU1MjoxMjRFOjM5NEVBNTE6NEQyN0E1RDo1QkFBNzQ3RSIsInRpbWVzdGFtcCI6MTUzNzg5NzYwMywiaG9zdCI6ImdpdGh1Yi5jb20ifQ==">
+    <meta name="js-proxy-site-detection-payload" content="NDVkYzUzZWRhNzM1MTgwMjMwNzA1ZjY2ZjIzNTZiZGI5NjZhYTM3YzIyNmIzMzkzYWVmZTJjNWYzZDA1MGM1OHx7InJlbW90ZV9hZGRyZXNzIjoiNTAuMjQ2LjIwOS4yNDkiLCJyZXF1ZXN0X2lkIjoiQjU1MjoxMjRFOjM5NDk3OUM6NEQxRkUzRTo1QkFBNzNBMCIsInRpbWVzdGFtcCI6MTUzNzg5NzQwNywiaG9zdCI6ImdpdGh1Yi5jb20ifQ==">
 
     <meta name="enabled-features" content="DASHBOARD_V2_LAYOUT_OPT_IN,EXPLORE_DISCOVER_REPOSITORIES,UNIVERSE_BANNER,MARKETPLACE_PLAN_RESTRICTION_EDITOR,MARKETPLACE_RETARGETING,QUOTE_MARKDOWN,COLLAPSE_REPEATED_COMMENTS">
 
@@ -85,7 +85,7 @@
   <meta name="octolytics-dimension-user_id" content="1753038" /><meta name="octolytics-dimension-user_login" content="johnisenglish" /><meta name="octolytics-dimension-repository_id" content="147992178" /><meta name="octolytics-dimension-repository_nwo" content="johnisenglish/qmk_firmware_dactylmanuform" /><meta name="octolytics-dimension-repository_public" content="true" /><meta name="octolytics-dimension-repository_is_fork" content="true" /><meta name="octolytics-dimension-repository_parent_id" content="63717794" /><meta name="octolytics-dimension-repository_parent_nwo" content="tshort/qmk_firmware" /><meta name="octolytics-dimension-repository_network_root_id" content="27737393" /><meta name="octolytics-dimension-repository_network_root_nwo" content="qmk/qmk_firmware" /><meta name="octolytics-dimension-repository_explore_github_marketplace_ci_cta_shown" content="true" />
 
 
-    <link rel="canonical" href="https://github.com/johnisenglish/qmk_firmware_dactylmanuform/blob/master/keyboards/dactyl-manuform/dactyl-manuform.h" data-pjax-transient>
+    <link rel="canonical" href="https://github.com/johnisenglish/qmk_firmware_dactylmanuform/blob/master/keyboards/dactyl-manuform/keymaps/6x6-john/keymap.c" data-pjax-transient>
 
 
   <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
@@ -153,7 +153,7 @@
           autocapitalize="off"
           aria-autocomplete="list"
           aria-controls="jump-to-results"
-          data-jump-to-suggestions-path="/_graphql/GetSuggestedNavigationDestinations#csrf-token=M2OLdK3WnD4Af1W2Ts18ZgPUqqcFC62ylbdAeN7p7j55jP6rJ3vBIEKbeY1Hbvz2mlkgoWC3Ux6MPQzluU/9YA=="
+          data-jump-to-suggestions-path="/_graphql/GetSuggestedNavigationDestinations#csrf-token=wHOpBpjMO810uR7W8wqXuKxCpRTEzjr+lqPBnbpK7KaKnNzZEmFm0zZdMu36qRcoNc8vEqFyxFKPKY0A3ez/+A=="
           spellcheck="false"
           autocomplete="off"
           >
@@ -296,7 +296,7 @@
           <li><a role="menuitem" class="dropdown-item" href="https://help.github.com" data-ga-click="Header, go to help, text:help">Help</a></li>
           <li><a role="menuitem" class="dropdown-item" href="/settings/profile" data-ga-click="Header, go to settings, icon:settings">Settings</a></li>
           <li>
-            <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="logout-form" action="/logout" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="bM21sf0TPNUXUk2RaP5qxFygGwJ8teLTktcc+uxGiraI4drAD3ETxCRWuErDU/bzYVvquf2DkeNILcCfKHtKlg==" />
+            <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="logout-form" action="/logout" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="RRXT/QXm2aqjtsJyo5wsZ83pqLCcjKegaGvjhnPTcaOhObyM94T2u5CyN6kIMbBQ8BJZCx261JCykT/jt+6xgw==" />
               <button type="submit" class="dropdown-item dropdown-signout" data-ga-click="Header, sign out, icon:logout" role="menuitem">
                 Sign out
               </button>
@@ -309,7 +309,7 @@
 
 
 
-        <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="sr-only right-0" action="/logout" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="8Fqffq7J/Rvgz5cDPBQ3hxTQC0lutbI7ELbDbcnxvQcUdvAPXKvSCtPLYtiXuauwKSv68u+DwQvKTB8IDcx9Jw==" />
+        <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="sr-only right-0" action="/logout" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="kmEzwKR4Y3xjWk8QgCfxH99J3Un3Q3vGdJ/SzXsfnkh2TVyxVhpMbVBeussrim0o4rIs8nZ1CPauZQ6ovyJeaA==" />
           <button type="submit" class="dropdown-item dropdown-signout" data-ga-click="Header, sign out, icon:logout">
             Sign out
           </button>
@@ -352,16 +352,13 @@
 
 
 
-  <div class="flash flash-warn flash-full border-0 text-center text-bold py-2">
-    This repository has been archived by the owner. It is now read-only.
-  </div>
 
   <div class="pagehead repohead instapaper_ignore readability-menu experiment-repo-nav  ">
     <div class="repohead-details-container clearfix container">
 
       <ul class="pagehead-actions">
   <li>
-        <!-- '"` --><!-- </textarea></xmp> --></option></form><form data-remote="true" class="js-social-form js-social-container" action="/notifications/subscribe" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="OJRdPLi1D6c503QfXd/dgRXC9EXQitMmfYE9zHZeMfoUqkRMzg/uOsncm2oAejzdw7Wej5paAzkE+LZzuxthRA==" />      <input type="hidden" name="repository_id" id="repository_id" value="147992178" class="form-control" />
+        <!-- '"` --><!-- </textarea></xmp> --></option></form><form data-remote="true" class="js-social-form js-social-container" action="/notifications/subscribe" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="YFDTrsdwCXddnpEGgOOj4x+XLcnftU13vcWmQJ8wi29Mbsrescro6q2RfnPdRkK/yeBHA5VlnWjEvC3/UnXb0Q==" />      <input type="hidden" name="repository_id" id="repository_id" value="147992178" class="form-control" />
 
       <details class="details-reset details-overlay select-menu float-left">
         <summary class="btn btn-sm btn-with-count select-menu-button" data-ga-click="Repository, click Watch settings, action:blob#show">
@@ -424,7 +421,7 @@
   <li>
     
   <div class="js-toggler-container js-social-container starring-container ">
-    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="starred js-social-form" action="/johnisenglish/qmk_firmware_dactylmanuform/unstar" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="z99WeUBGfrAwW5+f4xhg16pmD+XdRl4Yat7XU3pm+6wU9WOlV7jZ3aTWjkzgBb+lmeR2CT+iB/Mx+EVqfVJydQ==" />
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="starred js-social-form" action="/johnisenglish/qmk_firmware_dactylmanuform/unstar" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="jTBX7AJPPFLOC8CzrM3v4HL1lYBQztBVXI65N8IhE3lWGmIwFbGbP1qG0WCv0DCSQXfsbLIqib4HqCsOxRWaoA==" />
       <input type="hidden" name="context" value="repository"></input>
       <button
         type="submit"
@@ -439,7 +436,7 @@
           0
         </a>
 </form>
-    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="unstarred js-social-form" action="/johnisenglish/qmk_firmware_dactylmanuform/star" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="5UoKhA3n1LAwYLDx0SjeHZD09NDKmNwVhH7tlzg3+gE/ZrFdzRlKnJnQ+xir8jeZmWDd7eEGYOuDdHw9mgxcNw==" />
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="unstarred js-social-form" action="/johnisenglish/qmk_firmware_dactylmanuform/star" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="4pnpTm77StlpeykZafY7DzzyZ3AM46vQ1sqlziMiIpg4tVKXrgXU9cDLYvATLNKLNWZOTSd9Fy7RwDRkgRmErg==" />
       <input type="hidden" name="context" value="repository"></input>
       <button
         type="submit"
@@ -552,9 +549,9 @@
   <div class="repository-content ">
 
     
-  <a class="d-none js-permalink-shortcut" data-hotkey="y" href="/johnisenglish/qmk_firmware_dactylmanuform/blob/0a0c891a79fd726eb5fe5baee23df7874470c6b1/keyboards/dactyl-manuform/dactyl-manuform.h">Permalink</a>
+  <a class="d-none js-permalink-shortcut" data-hotkey="y" href="/johnisenglish/qmk_firmware_dactylmanuform/blob/0a0c891a79fd726eb5fe5baee23df7874470c6b1/keyboards/dactyl-manuform/keymaps/6x6-john/keymap.c">Permalink</a>
 
-  <!-- blob contrib key: blob_contributors:v21:763bd3702d39df99ffc253d3ed4bce90 -->
+  <!-- blob contrib key: blob_contributors:v21:099ea86eb01bbad4cd279d24c2cd32e9 -->
 
   
 
@@ -578,12 +575,12 @@
 
       <div class="select-menu-filters">
         <div class="select-menu-text-filter">
-          <input type="text" aria-label="Filter branches/tags" id="context-commitish-filter-field" class="form-control js-filterable-field js-navigation-enable" placeholder="Filter branches/tags">
+          <input type="text" aria-label="Find or create a branch…" id="context-commitish-filter-field" class="form-control js-filterable-field js-navigation-enable" placeholder="Find or create a branch…">
         </div>
         <div class="select-menu-tabs">
           <ul>
             <li class="select-menu-tab">
-              <a href="#" data-tab-filter="branches" data-filter-placeholder="Filter branches/tags" class="js-select-menu-tab" role="tab">Branches</a>
+              <a href="#" data-tab-filter="branches" data-filter-placeholder="Find or create a branch…" class="js-select-menu-tab" role="tab">Branches</a>
             </li>
             <li class="select-menu-tab">
               <a href="#" data-tab-filter="tags" data-filter-placeholder="Find a tag…" class="js-select-menu-tab" role="tab">Tags</a>
@@ -598,7 +595,7 @@
 
 
             <a class="select-menu-item js-navigation-item js-navigation-open "
-               href="/johnisenglish/qmk_firmware_dactylmanuform/blob/add-new-fn/keyboards/dactyl-manuform/dactyl-manuform.h"
+               href="/johnisenglish/qmk_firmware_dactylmanuform/blob/add-new-fn/keyboards/dactyl-manuform/keymaps/6x6-john/keymap.c"
                data-name="add-new-fn"
                data-skip-pjax="true"
                rel="nofollow">
@@ -608,7 +605,7 @@
               </span>
             </a>
             <a class="select-menu-item js-navigation-item js-navigation-open "
-               href="/johnisenglish/qmk_firmware_dactylmanuform/blob/audio/keyboards/dactyl-manuform/dactyl-manuform.h"
+               href="/johnisenglish/qmk_firmware_dactylmanuform/blob/audio/keyboards/dactyl-manuform/keymaps/6x6-john/keymap.c"
                data-name="audio"
                data-skip-pjax="true"
                rel="nofollow">
@@ -618,7 +615,7 @@
               </span>
             </a>
             <a class="select-menu-item js-navigation-item js-navigation-open "
-               href="/johnisenglish/qmk_firmware_dactylmanuform/blob/dactyl-manuform/keyboards/dactyl-manuform/dactyl-manuform.h"
+               href="/johnisenglish/qmk_firmware_dactylmanuform/blob/dactyl-manuform/keyboards/dactyl-manuform/keymaps/6x6-john/keymap.c"
                data-name="dactyl-manuform"
                data-skip-pjax="true"
                rel="nofollow">
@@ -628,7 +625,7 @@
               </span>
             </a>
             <a class="select-menu-item js-navigation-item js-navigation-open "
-               href="/johnisenglish/qmk_firmware_dactylmanuform/blob/leading-space/keyboards/dactyl-manuform/dactyl-manuform.h"
+               href="/johnisenglish/qmk_firmware_dactylmanuform/blob/leading-space/keyboards/dactyl-manuform/keymaps/6x6-john/keymap.c"
                data-name="leading-space"
                data-skip-pjax="true"
                rel="nofollow">
@@ -638,7 +635,7 @@
               </span>
             </a>
             <a class="select-menu-item js-navigation-item js-navigation-open selected"
-               href="/johnisenglish/qmk_firmware_dactylmanuform/blob/master/keyboards/dactyl-manuform/dactyl-manuform.h"
+               href="/johnisenglish/qmk_firmware_dactylmanuform/blob/master/keyboards/dactyl-manuform/keymaps/6x6-john/keymap.c"
                data-name="master"
                data-skip-pjax="true"
                rel="nofollow">
@@ -648,7 +645,7 @@
               </span>
             </a>
             <a class="select-menu-item js-navigation-item js-navigation-open "
-               href="/johnisenglish/qmk_firmware_dactylmanuform/blob/optimised/keyboards/dactyl-manuform/dactyl-manuform.h"
+               href="/johnisenglish/qmk_firmware_dactylmanuform/blob/optimised/keyboards/dactyl-manuform/keymaps/6x6-john/keymap.c"
                data-name="optimised"
                data-skip-pjax="true"
                rel="nofollow">
@@ -658,7 +655,7 @@
               </span>
             </a>
             <a class="select-menu-item js-navigation-item js-navigation-open "
-               href="/johnisenglish/qmk_firmware_dactylmanuform/blob/steno-bottom/keyboards/dactyl-manuform/dactyl-manuform.h"
+               href="/johnisenglish/qmk_firmware_dactylmanuform/blob/steno-bottom/keyboards/dactyl-manuform/keymaps/6x6-john/keymap.c"
                data-name="steno-bottom"
                data-skip-pjax="true"
                rel="nofollow">
@@ -668,7 +665,7 @@
               </span>
             </a>
             <a class="select-menu-item js-navigation-item js-navigation-open "
-               href="/johnisenglish/qmk_firmware_dactylmanuform/blob/trailing-space/keyboards/dactyl-manuform/dactyl-manuform.h"
+               href="/johnisenglish/qmk_firmware_dactylmanuform/blob/trailing-space/keyboards/dactyl-manuform/keymaps/6x6-john/keymap.c"
                data-name="trailing-space"
                data-skip-pjax="true"
                rel="nofollow">
@@ -678,7 +675,7 @@
               </span>
             </a>
             <a class="select-menu-item js-navigation-item js-navigation-open "
-               href="/johnisenglish/qmk_firmware_dactylmanuform/blob/unicode/keyboards/dactyl-manuform/dactyl-manuform.h"
+               href="/johnisenglish/qmk_firmware_dactylmanuform/blob/unicode/keyboards/dactyl-manuform/keymaps/6x6-john/keymap.c"
                data-name="unicode"
                data-skip-pjax="true"
                rel="nofollow">
@@ -688,7 +685,7 @@
               </span>
             </a>
             <a class="select-menu-item js-navigation-item js-navigation-open "
-               href="/johnisenglish/qmk_firmware_dactylmanuform/blob/user_functions/keyboards/dactyl-manuform/dactyl-manuform.h"
+               href="/johnisenglish/qmk_firmware_dactylmanuform/blob/user_functions/keyboards/dactyl-manuform/keymaps/6x6-john/keymap.c"
                data-name="user_functions"
                data-skip-pjax="true"
                rel="nofollow">
@@ -699,7 +696,19 @@
             </a>
         </div>
 
-          <div class="select-menu-no-results">Nothing to show</div>
+          <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="select-menu-new-item-form js-new-item-form" action="/johnisenglish/qmk_firmware_dactylmanuform/branches" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="OCU0y358KuwVyqFoq1/vxpgqAGp+sUIvz9tZ5VU1cnej1LLwxl+jFRLA76u1g75R41gPjbaF+RAt44od4jPkpg==" />
+            <input type="hidden" name="name" id="name" class="js-new-item-value">
+            <input type="hidden" name="branch" id="branch" value="master">
+            <input type="hidden" name="path" id="path" value="keyboards/dactyl-manuform/keymaps/6x6-john/keymap.c">
+
+            <button type="submit" class="width-full select-menu-item js-navigation-open js-navigation-item">
+              <svg class="octicon octicon-git-branch select-menu-item-icon" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M10 5c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v.3c-.02.52-.23.98-.63 1.38-.4.4-.86.61-1.38.63-.83.02-1.48.16-2 .45V4.72a1.993 1.993 0 0 0-1-3.72C.88 1 0 1.89 0 3a2 2 0 0 0 1 1.72v6.56c-.59.35-1 .99-1 1.72 0 1.11.89 2 2 2 1.11 0 2-.89 2-2 0-.53-.2-1-.53-1.36.09-.06.48-.41.59-.47.25-.11.56-.17.94-.17 1.05-.05 1.95-.45 2.75-1.25S8.95 7.77 9 6.73h-.02C9.59 6.37 10 5.73 10 5zM2 1.8c.66 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2C1.35 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2zm0 12.41c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm6-8c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
+              <div class="select-menu-item-text">
+                <span class="select-menu-item-heading">Create branch: <span class="js-new-item-name"></span></span>
+                <span class="description">from ‘master’</span>
+              </div>
+            </button>
+</form>
       </div>
 
       <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="tags">
@@ -707,7 +716,7 @@
 
 
             <a class="select-menu-item js-navigation-item js-navigation-open "
-              href="/johnisenglish/qmk_firmware_dactylmanuform/tree/v0.31.0-alpha/keyboards/dactyl-manuform/dactyl-manuform.h"
+              href="/johnisenglish/qmk_firmware_dactylmanuform/tree/v0.31.0-alpha/keyboards/dactyl-manuform/keymaps/6x6-john/keymap.c"
               data-name="v0.31.0-alpha"
               data-skip-pjax="true"
               rel="nofollow">
@@ -717,7 +726,7 @@
               </span>
             </a>
             <a class="select-menu-item js-navigation-item js-navigation-open "
-              href="/johnisenglish/qmk_firmware_dactylmanuform/tree/v0.21.0-alpha/keyboards/dactyl-manuform/dactyl-manuform.h"
+              href="/johnisenglish/qmk_firmware_dactylmanuform/tree/v0.21.0-alpha/keyboards/dactyl-manuform/keymaps/6x6-john/keymap.c"
               data-name="v0.21.0-alpha"
               data-skip-pjax="true"
               rel="nofollow">
@@ -727,7 +736,7 @@
               </span>
             </a>
             <a class="select-menu-item js-navigation-item js-navigation-open "
-              href="/johnisenglish/qmk_firmware_dactylmanuform/tree/v0.3.0-alpha/keyboards/dactyl-manuform/dactyl-manuform.h"
+              href="/johnisenglish/qmk_firmware_dactylmanuform/tree/v0.3.0-alpha/keyboards/dactyl-manuform/keymaps/6x6-john/keymap.c"
               data-name="v0.3.0-alpha"
               data-skip-pjax="true"
               rel="nofollow">
@@ -737,7 +746,7 @@
               </span>
             </a>
             <a class="select-menu-item js-navigation-item js-navigation-open "
-              href="/johnisenglish/qmk_firmware_dactylmanuform/tree/v0.2.0-alpha/keyboards/dactyl-manuform/dactyl-manuform.h"
+              href="/johnisenglish/qmk_firmware_dactylmanuform/tree/v0.2.0-alpha/keyboards/dactyl-manuform/keymaps/6x6-john/keymap.c"
               data-name="v0.2.0-alpha"
               data-skip-pjax="true"
               rel="nofollow">
@@ -747,7 +756,7 @@
               </span>
             </a>
             <a class="select-menu-item js-navigation-item js-navigation-open "
-              href="/johnisenglish/qmk_firmware_dactylmanuform/tree/v0.1.0-alpha/keyboards/dactyl-manuform/dactyl-manuform.h"
+              href="/johnisenglish/qmk_firmware_dactylmanuform/tree/v0.1.0-alpha/keyboards/dactyl-manuform/keymaps/6x6-john/keymap.c"
               data-name="v0.1.0-alpha"
               data-skip-pjax="true"
               rel="nofollow">
@@ -757,7 +766,7 @@
               </span>
             </a>
             <a class="select-menu-item js-navigation-item js-navigation-open "
-              href="/johnisenglish/qmk_firmware_dactylmanuform/tree/gh60-0.1/keyboards/dactyl-manuform/dactyl-manuform.h"
+              href="/johnisenglish/qmk_firmware_dactylmanuform/tree/gh60-0.1/keyboards/dactyl-manuform/keymaps/6x6-john/keymap.c"
               data-name="gh60-0.1"
               data-skip-pjax="true"
               rel="nofollow">
@@ -787,12 +796,12 @@
       </clipboard-copy>
     </div>
     <div id="blob-path" class="breadcrumb">
-      <span class="repo-root js-repo-root"><span class="js-path-segment"><a data-pjax="true" href="/johnisenglish/qmk_firmware_dactylmanuform"><span>qmk_firmware_dactylmanuform</span></a></span></span><span class="separator">/</span><span class="js-path-segment"><a data-pjax="true" href="/johnisenglish/qmk_firmware_dactylmanuform/tree/master/keyboards"><span>keyboards</span></a></span><span class="separator">/</span><span class="js-path-segment"><a data-pjax="true" href="/johnisenglish/qmk_firmware_dactylmanuform/tree/master/keyboards/dactyl-manuform"><span>dactyl-manuform</span></a></span><span class="separator">/</span><strong class="final-path">dactyl-manuform.h</strong>
+      <span class="repo-root js-repo-root"><span class="js-path-segment"><a data-pjax="true" href="/johnisenglish/qmk_firmware_dactylmanuform"><span>qmk_firmware_dactylmanuform</span></a></span></span><span class="separator">/</span><span class="js-path-segment"><a data-pjax="true" href="/johnisenglish/qmk_firmware_dactylmanuform/tree/master/keyboards"><span>keyboards</span></a></span><span class="separator">/</span><span class="js-path-segment"><a data-pjax="true" href="/johnisenglish/qmk_firmware_dactylmanuform/tree/master/keyboards/dactyl-manuform"><span>dactyl-manuform</span></a></span><span class="separator">/</span><span class="js-path-segment"><a data-pjax="true" href="/johnisenglish/qmk_firmware_dactylmanuform/tree/master/keyboards/dactyl-manuform/keymaps"><span>keymaps</span></a></span><span class="separator">/</span><span class="js-path-segment"><a data-pjax="true" href="/johnisenglish/qmk_firmware_dactylmanuform/tree/master/keyboards/dactyl-manuform/keymaps/6x6-john"><span>6x6-john</span></a></span><span class="separator">/</span><strong class="final-path">keymap.c</strong>
     </div>
   </div>
 
 
-  <include-fragment src="/johnisenglish/qmk_firmware_dactylmanuform/contributors/master/keyboards/dactyl-manuform/dactyl-manuform.h" class="commit-tease commit-loader">
+  <include-fragment src="/johnisenglish/qmk_firmware_dactylmanuform/contributors/master/keyboards/dactyl-manuform/keymaps/6x6-john/keymap.c" class="commit-tease commit-loader">
     <div>
       Fetching contributors&hellip;
     </div>
@@ -809,26 +818,29 @@
   <div class="file-actions">
 
     <div class="BtnGroup">
-      <a id="raw-url" class="btn btn-sm BtnGroup-item" href="/johnisenglish/qmk_firmware_dactylmanuform/raw/master/keyboards/dactyl-manuform/dactyl-manuform.h">Raw</a>
-        <a class="btn btn-sm js-update-url-with-hash BtnGroup-item" data-hotkey="b" href="/johnisenglish/qmk_firmware_dactylmanuform/blame/master/keyboards/dactyl-manuform/dactyl-manuform.h">Blame</a>
-      <a rel="nofollow" class="btn btn-sm BtnGroup-item" href="/johnisenglish/qmk_firmware_dactylmanuform/commits/master/keyboards/dactyl-manuform/dactyl-manuform.h">History</a>
+      <a id="raw-url" class="btn btn-sm BtnGroup-item" href="/johnisenglish/qmk_firmware_dactylmanuform/raw/master/keyboards/dactyl-manuform/keymaps/6x6-john/keymap.c">Raw</a>
+        <a class="btn btn-sm js-update-url-with-hash BtnGroup-item" data-hotkey="b" href="/johnisenglish/qmk_firmware_dactylmanuform/blame/master/keyboards/dactyl-manuform/keymaps/6x6-john/keymap.c">Blame</a>
+      <a rel="nofollow" class="btn btn-sm BtnGroup-item" href="/johnisenglish/qmk_firmware_dactylmanuform/commits/master/keyboards/dactyl-manuform/keymaps/6x6-john/keymap.c">History</a>
     </div>
 
 
-        <button type="button" class="btn-octicon disabled tooltipped tooltipped-nw"
-          aria-label="You must be able to fork a repository to propose changes">
-          <svg class="octicon octicon-pencil" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z"/></svg>
-        </button>
-        <button type="button" class="btn-octicon btn-octicon-danger disabled tooltipped tooltipped-nw"
-          aria-label="You must be able to fork a repository to propose changes">
-          <svg class="octicon octicon-trashcan" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M11 2H9c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1H2c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1v9c0 .55.45 1 1 1h7c.55 0 1-.45 1-1V5c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm-1 12H3V5h1v8h1V5h1v8h1V5h1v8h1V5h1v9zm1-10H2V3h9v1z"/></svg>
-        </button>
-  </div>
+          <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="inline-form js-update-url-with-hash" action="/johnisenglish/qmk_firmware_dactylmanuform/edit/master/keyboards/dactyl-manuform/keymaps/6x6-john/keymap.c" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="VbSBIgGvqzshCZKVPhrXLxD4S6ts8gRDZoGF9AJjhtLY8fJw4fMFaRwCNTb2J5SO4yda8ubTY/6ONihx+U2Z6g==" />
+            <button class="btn-octicon tooltipped tooltipped-nw" type="submit"
+              aria-label="Edit this file" data-hotkey="e" data-disable-with>
+              <svg class="octicon octicon-pencil" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z"/></svg>
+            </button>
+</form>
+        <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="inline-form" action="/johnisenglish/qmk_firmware_dactylmanuform/delete/master/keyboards/dactyl-manuform/keymaps/6x6-john/keymap.c" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="eJW1k0YI8sbJ/x+uNDShwvJOgKH4/s5Ety/Z+TBw5LLnE9T6tqDf9fz2LuE5SG3Ce0q5h0BGcQDgQ1i+ztDhXg==" />
+          <button class="btn-octicon btn-octicon-danger tooltipped tooltipped-nw" type="submit"
+            aria-label="Delete this file" data-disable-with>
+            <svg class="octicon octicon-trashcan" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M11 2H9c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1H2c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1v9c0 .55.45 1 1 1h7c.55 0 1-.45 1-1V5c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm-1 12H3V5h1v8h1V5h1v8h1V5h1v8h1V5h1v9zm1-10H2V3h9v1z"/></svg>
+          </button>
+</form>  </div>
 
   <div class="file-info">
-      109 lines (103 sloc)
+      162 lines (149 sloc)
       <span class="file-info-divider"></span>
-    3.13 KB
+    6.14 KB
   </div>
 </div>
 
@@ -838,20 +850,19 @@
       <table class="highlight tab-size js-file-line-container" data-tab-size="8">
       <tr>
         <td id="L1" class="blob-num js-line-number" data-line-number="1"></td>
-        <td id="LC1" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">ifndef</span> DACTYL_MANUFORM_H</td>
+        <td id="LC1" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&quot;</span>dactyl-manuform.h<span class="pl-pds">&quot;</span></span></td>
       </tr>
       <tr>
         <td id="L2" class="blob-num js-line-number" data-line-number="2"></td>
-        <td id="LC2" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">DACTYL_MANUFORM_H</span></td>
+        <td id="LC2" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&quot;</span>action_layer.h<span class="pl-pds">&quot;</span></span></td>
       </tr>
       <tr>
         <td id="L3" class="blob-num js-line-number" data-line-number="3"></td>
-        <td id="LC3" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC3" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&quot;</span>eeconfig.h<span class="pl-pds">&quot;</span></span></td>
       </tr>
       <tr>
         <td id="L4" class="blob-num js-line-number" data-line-number="4"></td>
-        <td id="LC4" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&quot;</span>config.h<span class="pl-pds">&quot;</span></span></td>
+        <td id="LC4" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&quot;</span>quantum.h<span class="pl-pds">&quot;</span></span></td>
       </tr>
       <tr>
         <td id="L5" class="blob-num js-line-number" data-line-number="5"></td>
@@ -860,418 +871,638 @@
       </tr>
       <tr>
         <td id="L6" class="blob-num js-line-number" data-line-number="6"></td>
-        <td id="LC6" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&quot;</span>quantum.h<span class="pl-pds">&quot;</span></span></td>
+        <td id="LC6" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L7" class="blob-num js-line-number" data-line-number="7"></td>
-        <td id="LC7" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC7" class="blob-code blob-code-inner js-file-line"><span class="pl-k">extern</span> <span class="pl-c1">keymap_config_t</span> keymap_config;</td>
       </tr>
       <tr>
         <td id="L8" class="blob-num js-line-number" data-line-number="8"></td>
-        <td id="LC8" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">KEYMAP_6x6</span>( \</td>
+        <td id="LC8" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L9" class="blob-num js-line-number" data-line-number="9"></td>
-        <td id="LC9" class="blob-code blob-code-inner js-file-line">		l01, l02, l03, l04, l05, l06, \</td>
+        <td id="LC9" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span> Each layer gets a name for readability, which is then used in the keymap matrix below.</span></td>
       </tr>
       <tr>
         <td id="L10" class="blob-num js-line-number" data-line-number="10"></td>
-        <td id="LC10" class="blob-code blob-code-inner js-file-line">		l11, l12, l13, l14, l15, l16, \</td>
+        <td id="LC10" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span> The underscores don&#39;t mean anything - you can have a layer called STUFF or any other name.</span></td>
       </tr>
       <tr>
         <td id="L11" class="blob-num js-line-number" data-line-number="11"></td>
-        <td id="LC11" class="blob-code blob-code-inner js-file-line">		l21, l22, l23, l24, l25, l26, \</td>
+        <td id="LC11" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span> Layer names don&#39;t all need to be of the same length, obviously, and you can also skip them</span></td>
       </tr>
       <tr>
         <td id="L12" class="blob-num js-line-number" data-line-number="12"></td>
-        <td id="LC12" class="blob-code blob-code-inner js-file-line">		l31, l32, l33, l34, l35, l36, \</td>
+        <td id="LC12" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span> entirely and just use numbers.</span></td>
       </tr>
       <tr>
         <td id="L13" class="blob-num js-line-number" data-line-number="13"></td>
-        <td id="LC13" class="blob-code blob-code-inner js-file-line">		l41, l42, l43, l44, l45, l46, \</td>
+        <td id="LC13" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">_LETTERS</span>    <span class="pl-c1">0</span></td>
       </tr>
       <tr>
         <td id="L14" class="blob-num js-line-number" data-line-number="14"></td>
-        <td id="LC14" class="blob-code blob-code-inner js-file-line">		          l53, l54,           \</td>
+        <td id="LC14" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">_NUMBERS</span>    <span class="pl-c1">1</span></td>
       </tr>
       <tr>
         <td id="L15" class="blob-num js-line-number" data-line-number="15"></td>
-        <td id="LC15" class="blob-code blob-code-inner js-file-line">                            l55, l56, \</td>
+        <td id="LC15" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">_NAVIGATION</span> <span class="pl-c1">2</span></td>
       </tr>
       <tr>
         <td id="L16" class="blob-num js-line-number" data-line-number="16"></td>
-        <td id="LC16" class="blob-code blob-code-inner js-file-line">                            l65, l66, \</td>
+        <td id="LC16" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">_SYMBOLS</span> <span class="pl-c1">3</span></td>
       </tr>
       <tr>
         <td id="L17" class="blob-num js-line-number" data-line-number="17"></td>
-        <td id="LC17" class="blob-code blob-code-inner js-file-line">		                    l63, l64, \</td>
+        <td id="LC17" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L18" class="blob-num js-line-number" data-line-number="18"></td>
-        <td id="LC18" class="blob-code blob-code-inner js-file-line">		r01, r02, r03, r04, r05, r06, \</td>
+        <td id="LC18" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L19" class="blob-num js-line-number" data-line-number="19"></td>
-        <td id="LC19" class="blob-code blob-code-inner js-file-line">		r11, r12, r13, r14, r15, r16, \</td>
+        <td id="LC19" class="blob-code blob-code-inner js-file-line"><span class="pl-k">enum</span> custom_keycodes {</td>
       </tr>
       <tr>
         <td id="L20" class="blob-num js-line-number" data-line-number="20"></td>
-        <td id="LC20" class="blob-code blob-code-inner js-file-line">		r21, r22, r23, r24, r25, r26, \</td>
+        <td id="LC20" class="blob-code blob-code-inner js-file-line">  COLEMAK = SAFE_RANGE,</td>
       </tr>
       <tr>
         <td id="L21" class="blob-num js-line-number" data-line-number="21"></td>
-        <td id="LC21" class="blob-code blob-code-inner js-file-line">		r31, r32, r33, r34, r35, r36, \</td>
+        <td id="LC21" class="blob-code blob-code-inner js-file-line">  LOWER,</td>
       </tr>
       <tr>
         <td id="L22" class="blob-num js-line-number" data-line-number="22"></td>
-        <td id="LC22" class="blob-code blob-code-inner js-file-line">		r41, r42, r43, r44, r45, r46, \</td>
+        <td id="LC22" class="blob-code blob-code-inner js-file-line">  RAISE,</td>
       </tr>
       <tr>
         <td id="L23" class="blob-num js-line-number" data-line-number="23"></td>
-        <td id="LC23" class="blob-code blob-code-inner js-file-line">		          r53, r54,           \</td>
+        <td id="LC23" class="blob-code blob-code-inner js-file-line">};</td>
       </tr>
       <tr>
         <td id="L24" class="blob-num js-line-number" data-line-number="24"></td>
-        <td id="LC24" class="blob-code blob-code-inner js-file-line">        r51, r52, \</td>
+        <td id="LC24" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L25" class="blob-num js-line-number" data-line-number="25"></td>
-        <td id="LC25" class="blob-code blob-code-inner js-file-line">        r61, r62, \</td>
+        <td id="LC25" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span> Fillers to make layering more clear</span></td>
       </tr>
       <tr>
         <td id="L26" class="blob-num js-line-number" data-line-number="26"></td>
-        <td id="LC26" class="blob-code blob-code-inner js-file-line">		r63, r64  \</td>
+        <td id="LC26" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">_______</span> KC_TRNS</td>
       </tr>
       <tr>
         <td id="L27" class="blob-num js-line-number" data-line-number="27"></td>
-        <td id="LC27" class="blob-code blob-code-inner js-file-line">	) \</td>
+        <td id="LC27" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">XXXXXXX</span> KC_NO</td>
       </tr>
       <tr>
         <td id="L28" class="blob-num js-line-number" data-line-number="28"></td>
-        <td id="LC28" class="blob-code blob-code-inner js-file-line">	{ \</td>
+        <td id="LC28" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L29" class="blob-num js-line-number" data-line-number="29"></td>
-        <td id="LC29" class="blob-code blob-code-inner js-file-line">		{ l01, l02, l03, l04, l05, l06 }, \</td>
+        <td id="LC29" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span> #define KC_L1 LOWER</span></td>
       </tr>
       <tr>
         <td id="L30" class="blob-num js-line-number" data-line-number="30"></td>
-        <td id="LC30" class="blob-code blob-code-inner js-file-line">        { l11, l12, l13, l14, l15, l16 }, \</td>
+        <td id="LC30" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span> #define KC_L2 RAISE</span></td>
       </tr>
       <tr>
         <td id="L31" class="blob-num js-line-number" data-line-number="31"></td>
-        <td id="LC31" class="blob-code blob-code-inner js-file-line">		{ l21, l22, l23, l24, l25, l26 }, \</td>
+        <td id="LC31" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L32" class="blob-num js-line-number" data-line-number="32"></td>
-        <td id="LC32" class="blob-code blob-code-inner js-file-line">		{ l31, l32, l33, l34, l35, l36 }, \</td>
+        <td id="LC32" class="blob-code blob-code-inner js-file-line"><span class="pl-k">const</span> <span class="pl-c1">uint16_t</span> PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {</td>
       </tr>
       <tr>
         <td id="L33" class="blob-num js-line-number" data-line-number="33"></td>
-        <td id="LC33" class="blob-code blob-code-inner js-file-line">		{ l41, l42, l43, l44, l45, l46 }, \</td>
+        <td id="LC33" class="blob-code blob-code-inner js-file-line">[_LETTERS] = <span class="pl-c1">KEYMAP_6x6</span>(</td>
       </tr>
       <tr>
         <td id="L34" class="blob-num js-line-number" data-line-number="34"></td>
-        <td id="LC34" class="blob-code blob-code-inner js-file-line">		{ KC_NO, KC_NO, l53, l54, l55, l56 }, \</td>
+        <td id="LC34" class="blob-code blob-code-inner js-file-line">  <span class="pl-c"><span class="pl-c">//</span> left hand</span></td>
       </tr>
       <tr>
         <td id="L35" class="blob-num js-line-number" data-line-number="35"></td>
-        <td id="LC35" class="blob-code blob-code-inner js-file-line">		{ KC_NO, KC_NO, l63, l64, l65, l66 }, \</td>
+        <td id="LC35" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>   KC_F1,           KC_F2,   KC_F3,   KC_F4,  KC_F5,  KC_F6, </span></td>
       </tr>
       <tr>
         <td id="L36" class="blob-num js-line-number" data-line-number="36"></td>
-        <td id="LC36" class="blob-code blob-code-inner js-file-line">		{ r01, r02, r03, r04, r05, r06 }, \</td>
+        <td id="LC36" class="blob-code blob-code-inner js-file-line">   RESET,  _______,  _______,  _______,  _______,  _______,</td>
       </tr>
       <tr>
         <td id="L37" class="blob-num js-line-number" data-line-number="37"></td>
-        <td id="LC37" class="blob-code blob-code-inner js-file-line">		{ r11, r12, r13, r14, r15, r16 }, \</td>
+        <td id="LC37" class="blob-code blob-code-inner js-file-line">   KC_ESC,          KC_1,    KC_2,    KC_3,    KC_4,   KC_5,</td>
       </tr>
       <tr>
         <td id="L38" class="blob-num js-line-number" data-line-number="38"></td>
-        <td id="LC38" class="blob-code blob-code-inner js-file-line">		{ r21, r22, r23, r24, r25, r26 }, \</td>
+        <td id="LC38" class="blob-code blob-code-inner js-file-line">   KC_GRAVE,        KC_Q,    KC_W,    KC_F,   KC_P,   KC_G,</td>
       </tr>
       <tr>
         <td id="L39" class="blob-num js-line-number" data-line-number="39"></td>
-        <td id="LC39" class="blob-code blob-code-inner js-file-line">		{ r31, r32, r33, r34, r35, r36 }, \</td>
+        <td id="LC39" class="blob-code blob-code-inner js-file-line">   <span class="pl-c1">LSFT_T</span>(KC_CAPS), KC_A,    KC_R,    KC_S,   KC_T,   KC_D,</td>
       </tr>
       <tr>
         <td id="L40" class="blob-num js-line-number" data-line-number="40"></td>
-        <td id="LC40" class="blob-code blob-code-inner js-file-line">		{ r41, r42, r43, r44, r45, r46 }, \</td>
+        <td id="LC40" class="blob-code blob-code-inner js-file-line">   KC_LCTL,         KC_Z,    KC_X,    KC_C,   KC_V,   KC_B,</td>
       </tr>
       <tr>
         <td id="L41" class="blob-num js-line-number" data-line-number="41"></td>
-        <td id="LC41" class="blob-code blob-code-inner js-file-line">		{ r51, r52, r53, r54, KC_NO, KC_NO }, \</td>
+        <td id="LC41" class="blob-code blob-code-inner js-file-line">                             KC_BSPC, KC_DEL,</td>
       </tr>
       <tr>
         <td id="L42" class="blob-num js-line-number" data-line-number="42"></td>
-        <td id="LC42" class="blob-code blob-code-inner js-file-line">		{ r61, r62, r63, r64, KC_NO, KC_NO } \</td>
+        <td id="LC42" class="blob-code blob-code-inner js-file-line">                                 KC_ENTER, KC_SPC, </td>
       </tr>
       <tr>
         <td id="L43" class="blob-num js-line-number" data-line-number="43"></td>
-        <td id="LC43" class="blob-code blob-code-inner js-file-line">	}</td>
+        <td id="LC43" class="blob-code blob-code-inner js-file-line">                                   <span class="pl-c1">TT</span>(_NAVIGATION), <span class="pl-c1">TT</span>(_NUMBERS),</td>
       </tr>
       <tr>
         <td id="L44" class="blob-num js-line-number" data-line-number="44"></td>
-        <td id="LC44" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC44" class="blob-code blob-code-inner js-file-line">                                   KC_LALT, KC_LGUI,</td>
       </tr>
       <tr>
         <td id="L45" class="blob-num js-line-number" data-line-number="45"></td>
-        <td id="LC45" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">KEYMAP_5x6</span>( \</td>
+        <td id="LC45" class="blob-code blob-code-inner js-file-line">  <span class="pl-c"><span class="pl-c">//</span> right hand</span></td>
       </tr>
       <tr>
         <td id="L46" class="blob-num js-line-number" data-line-number="46"></td>
-        <td id="LC46" class="blob-code blob-code-inner js-file-line">		l11, l12, l13, l14, l15, l16, \</td>
+        <td id="LC46" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>    KC_F7,   KC_F8,  KC_F9,   KC_F10,  KC_F11,  KC_F12,</span></td>
       </tr>
       <tr>
         <td id="L47" class="blob-num js-line-number" data-line-number="47"></td>
-        <td id="LC47" class="blob-code blob-code-inner js-file-line">		l21, l22, l23, l24, l25, l26, \</td>
+        <td id="LC47" class="blob-code blob-code-inner js-file-line">    _______,  _______,  _______,  _______,  _______,  RESET,</td>
       </tr>
       <tr>
         <td id="L48" class="blob-num js-line-number" data-line-number="48"></td>
-        <td id="LC48" class="blob-code blob-code-inner js-file-line">		l31, l32, l33, l34, l35, l36, \</td>
+        <td id="LC48" class="blob-code blob-code-inner js-file-line">    KC_6,      KC_7,    KC_8,     KC_9,     KC_0,     KC_ESC,</td>
       </tr>
       <tr>
         <td id="L49" class="blob-num js-line-number" data-line-number="49"></td>
-        <td id="LC49" class="blob-code blob-code-inner js-file-line">		l41, l42, l43, l44, l45, l46, \</td>
+        <td id="LC49" class="blob-code blob-code-inner js-file-line">    KC_J,      KC_L,    KC_U,     KC_Y,     KC_BSLS,  <span class="pl-c1">TT</span>(_SYMBOLS),</td>
       </tr>
       <tr>
         <td id="L50" class="blob-num js-line-number" data-line-number="50"></td>
-        <td id="LC50" class="blob-code blob-code-inner js-file-line">		          l53, l54,           \</td>
+        <td id="LC50" class="blob-code blob-code-inner js-file-line">    KC_H,      KC_N,    KC_E,     KC_I,     KC_O,     <span class="pl-c1">RSFT_T</span>(KC_CAPS), </td>
       </tr>
       <tr>
         <td id="L51" class="blob-num js-line-number" data-line-number="51"></td>
-        <td id="LC51" class="blob-code blob-code-inner js-file-line">                            l55, l56, \</td>
+        <td id="LC51" class="blob-code blob-code-inner js-file-line">    KC_K,      KC_M,    KC_COMM,  KC_DOT,   KC_SLSH,  KC_RCTL,</td>
       </tr>
       <tr>
         <td id="L52" class="blob-num js-line-number" data-line-number="52"></td>
-        <td id="LC52" class="blob-code blob-code-inner js-file-line">                            l65, l66, \</td>
+        <td id="LC52" class="blob-code blob-code-inner js-file-line">                       KC_BSPC, KC_DEL,</td>
       </tr>
       <tr>
         <td id="L53" class="blob-num js-line-number" data-line-number="53"></td>
-        <td id="LC53" class="blob-code blob-code-inner js-file-line">		                    l63, l64, \</td>
+        <td id="LC53" class="blob-code blob-code-inner js-file-line">                 KC_SPC, KC_ENTER, </td>
       </tr>
       <tr>
         <td id="L54" class="blob-num js-line-number" data-line-number="54"></td>
-        <td id="LC54" class="blob-code blob-code-inner js-file-line">		r11, r12, r13, r14, r15, r16, \</td>
+        <td id="LC54" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">TT</span>(_NUMBERS), <span class="pl-c1">TT</span>(_NAVIGATION),</td>
       </tr>
       <tr>
         <td id="L55" class="blob-num js-line-number" data-line-number="55"></td>
-        <td id="LC55" class="blob-code blob-code-inner js-file-line">		r21, r22, r23, r24, r25, r26, \</td>
+        <td id="LC55" class="blob-code blob-code-inner js-file-line">        KC_RGUI, KC_RALT),</td>
       </tr>
       <tr>
         <td id="L56" class="blob-num js-line-number" data-line-number="56"></td>
-        <td id="LC56" class="blob-code blob-code-inner js-file-line">		r31, r32, r33, r34, r35, r36, \</td>
+        <td id="LC56" class="blob-code blob-code-inner js-file-line">[_NUMBERS] = <span class="pl-c1">KEYMAP_6x6</span>(</td>
       </tr>
       <tr>
         <td id="L57" class="blob-num js-line-number" data-line-number="57"></td>
-        <td id="LC57" class="blob-code blob-code-inner js-file-line">		r41, r42, r43, r44, r45, r46, \</td>
+        <td id="LC57" class="blob-code blob-code-inner js-file-line">  <span class="pl-c"><span class="pl-c">//</span> left hand</span></td>
       </tr>
       <tr>
         <td id="L58" class="blob-num js-line-number" data-line-number="58"></td>
-        <td id="LC58" class="blob-code blob-code-inner js-file-line">		          r53, r54,           \</td>
+        <td id="LC58" class="blob-code blob-code-inner js-file-line">    _______,  _______,  _______,  _______,  _______,  _______,</td>
       </tr>
       <tr>
         <td id="L59" class="blob-num js-line-number" data-line-number="59"></td>
-        <td id="LC59" class="blob-code blob-code-inner js-file-line">        r51, r52, \</td>
+        <td id="LC59" class="blob-code blob-code-inner js-file-line">    _______,  _______,  _______,  _______,  KC_LBRC,  KC_RBRC,</td>
       </tr>
       <tr>
         <td id="L60" class="blob-num js-line-number" data-line-number="60"></td>
-        <td id="LC60" class="blob-code blob-code-inner js-file-line">        r61, r62, \</td>
+        <td id="LC60" class="blob-code blob-code-inner js-file-line">    _______,  _______,  _______,  _______,  KC_LCBR,  KC_RCBR,</td>
       </tr>
       <tr>
         <td id="L61" class="blob-num js-line-number" data-line-number="61"></td>
-        <td id="LC61" class="blob-code blob-code-inner js-file-line">		r63, r64  \</td>
+        <td id="LC61" class="blob-code blob-code-inner js-file-line">    _______,  _______,  _______,  _______,  KC_LPRN,  KC_RPRN,</td>
       </tr>
       <tr>
         <td id="L62" class="blob-num js-line-number" data-line-number="62"></td>
-        <td id="LC62" class="blob-code blob-code-inner js-file-line">	) \</td>
+        <td id="LC62" class="blob-code blob-code-inner js-file-line">    _______,  _______,  _______,  _______,  KC_LABK,  KC_RABK,</td>
       </tr>
       <tr>
         <td id="L63" class="blob-num js-line-number" data-line-number="63"></td>
-        <td id="LC63" class="blob-code blob-code-inner js-file-line">	{ \</td>
+        <td id="LC63" class="blob-code blob-code-inner js-file-line">                        _______,  _______,</td>
       </tr>
       <tr>
         <td id="L64" class="blob-num js-line-number" data-line-number="64"></td>
-        <td id="LC64" class="blob-code blob-code-inner js-file-line">		{ l11, l12, l13, l14, l15, l16 }, \</td>
+        <td id="LC64" class="blob-code blob-code-inner js-file-line">                              _______, _______, </td>
       </tr>
       <tr>
         <td id="L65" class="blob-num js-line-number" data-line-number="65"></td>
-        <td id="LC65" class="blob-code blob-code-inner js-file-line">		{ l21, l22, l23, l24, l25, l26 }, \</td>
+        <td id="LC65" class="blob-code blob-code-inner js-file-line">                                   _______, _______,</td>
       </tr>
       <tr>
         <td id="L66" class="blob-num js-line-number" data-line-number="66"></td>
-        <td id="LC66" class="blob-code blob-code-inner js-file-line">		{ l31, l32, l33, l34, l35, l36 }, \</td>
+        <td id="LC66" class="blob-code blob-code-inner js-file-line">                                   _______, _______,</td>
       </tr>
       <tr>
         <td id="L67" class="blob-num js-line-number" data-line-number="67"></td>
-        <td id="LC67" class="blob-code blob-code-inner js-file-line">		{ l41, l42, l43, l44, l45, l46 }, \</td>
+        <td id="LC67" class="blob-code blob-code-inner js-file-line">  <span class="pl-c"><span class="pl-c">//</span> right hand</span></td>
       </tr>
       <tr>
         <td id="L68" class="blob-num js-line-number" data-line-number="68"></td>
-        <td id="LC68" class="blob-code blob-code-inner js-file-line">		{ KC_NO, KC_NO, l53, l54, l55, l56 }, \</td>
+        <td id="LC68" class="blob-code blob-code-inner js-file-line">    _______,  _______,  _______,   _______,  _______,  _______,</td>
       </tr>
       <tr>
         <td id="L69" class="blob-num js-line-number" data-line-number="69"></td>
-        <td id="LC69" class="blob-code blob-code-inner js-file-line">		{ KC_NO, KC_NO, l63, l64, l65, l66 }, \</td>
+        <td id="LC69" class="blob-code blob-code-inner js-file-line">    _______,  KC_7,     KC_8,      KC_9,     KC_0,     _______,</td>
       </tr>
       <tr>
         <td id="L70" class="blob-num js-line-number" data-line-number="70"></td>
-        <td id="LC70" class="blob-code blob-code-inner js-file-line">		{ r11, r12, r13, r14, r15, r16 }, \</td>
+        <td id="LC70" class="blob-code blob-code-inner js-file-line">    _______,  KC_4,     KC_5,      KC_6,     KC_PPLS,  _______, </td>
       </tr>
       <tr>
         <td id="L71" class="blob-num js-line-number" data-line-number="71"></td>
-        <td id="LC71" class="blob-code blob-code-inner js-file-line">		{ r21, r22, r23, r24, r25, r26 }, \</td>
+        <td id="LC71" class="blob-code blob-code-inner js-file-line">    _______,  KC_1,     KC_2,      KC_3,     _______,  _______,</td>
       </tr>
       <tr>
         <td id="L72" class="blob-num js-line-number" data-line-number="72"></td>
-        <td id="LC72" class="blob-code blob-code-inner js-file-line">		{ r31, r32, r33, r34, r35, r36 }, \</td>
+        <td id="LC72" class="blob-code blob-code-inner js-file-line">    _______,  _______,  KC_0,      KC_DOT,  KC_PSLS,  _______,</td>
       </tr>
       <tr>
         <td id="L73" class="blob-num js-line-number" data-line-number="73"></td>
-        <td id="LC73" class="blob-code blob-code-inner js-file-line">		{ r41, r42, r43, r44, r45, r46 }, \</td>
+        <td id="LC73" class="blob-code blob-code-inner js-file-line">                        _______,     _______,</td>
       </tr>
       <tr>
         <td id="L74" class="blob-num js-line-number" data-line-number="74"></td>
-        <td id="LC74" class="blob-code blob-code-inner js-file-line">		{ r51, r52, r53, r54, KC_NO, KC_NO }, \</td>
+        <td id="LC74" class="blob-code blob-code-inner js-file-line">                  _______, _______, </td>
       </tr>
       <tr>
         <td id="L75" class="blob-num js-line-number" data-line-number="75"></td>
-        <td id="LC75" class="blob-code blob-code-inner js-file-line">		{ r61, r62, r63, r64, KC_NO, KC_NO } \</td>
+        <td id="LC75" class="blob-code blob-code-inner js-file-line">        _______, _______,</td>
       </tr>
       <tr>
         <td id="L76" class="blob-num js-line-number" data-line-number="76"></td>
-        <td id="LC76" class="blob-code blob-code-inner js-file-line">	}</td>
+        <td id="LC76" class="blob-code blob-code-inner js-file-line">        _______, _______),</td>
       </tr>
       <tr>
         <td id="L77" class="blob-num js-line-number" data-line-number="77"></td>
-        <td id="LC77" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC77" class="blob-code blob-code-inner js-file-line">[_SYMBOLS] = <span class="pl-c1">KEYMAP_6x6</span>(</td>
       </tr>
       <tr>
         <td id="L78" class="blob-num js-line-number" data-line-number="78"></td>
-        <td id="LC78" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">KEYMAP_4x5</span>( \</td>
+        <td id="LC78" class="blob-code blob-code-inner js-file-line">  <span class="pl-c"><span class="pl-c">//</span> left hand</span></td>
       </tr>
       <tr>
         <td id="L79" class="blob-num js-line-number" data-line-number="79"></td>
-        <td id="LC79" class="blob-code blob-code-inner js-file-line">		l22, l23, l24, l25, l26, \</td>
+        <td id="LC79" class="blob-code blob-code-inner js-file-line">    _______,  _______,  _______,  _______,  _______,  _______, </td>
       </tr>
       <tr>
         <td id="L80" class="blob-num js-line-number" data-line-number="80"></td>
-        <td id="LC80" class="blob-code blob-code-inner js-file-line">		l32, l33, l34, l35, l36, \</td>
+        <td id="LC80" class="blob-code blob-code-inner js-file-line">    KC_EXLM,  KC_AT,    KC_HASH,  KC_RBRC,  KC_DLR,  KC_PERC, </td>
       </tr>
       <tr>
         <td id="L81" class="blob-num js-line-number" data-line-number="81"></td>
-        <td id="LC81" class="blob-code blob-code-inner js-file-line">		l42, l43, l44, l45, l46, \</td>
+        <td id="LC81" class="blob-code blob-code-inner js-file-line">    _______,  _______,  _______,  _______,  _______,  _______, </td>
       </tr>
       <tr>
         <td id="L82" class="blob-num js-line-number" data-line-number="82"></td>
-        <td id="LC82" class="blob-code blob-code-inner js-file-line">		     l53, l54,           \</td>
+        <td id="LC82" class="blob-code blob-code-inner js-file-line">    _______,  _______,  _______,  _______,  _______,  _______, </td>
       </tr>
       <tr>
         <td id="L83" class="blob-num js-line-number" data-line-number="83"></td>
-        <td id="LC83" class="blob-code blob-code-inner js-file-line">                       l55, l56, \</td>
+        <td id="LC83" class="blob-code blob-code-inner js-file-line">    _______,  _______,  _______,  _______,  _______,  _______, </td>
       </tr>
       <tr>
         <td id="L84" class="blob-num js-line-number" data-line-number="84"></td>
-        <td id="LC84" class="blob-code blob-code-inner js-file-line">                       l65, l66, \</td>
+        <td id="LC84" class="blob-code blob-code-inner js-file-line">                        _______,  _______,</td>
       </tr>
       <tr>
         <td id="L85" class="blob-num js-line-number" data-line-number="85"></td>
-        <td id="LC85" class="blob-code blob-code-inner js-file-line">		               l63, l64, \</td>
+        <td id="LC85" class="blob-code blob-code-inner js-file-line">                             KC_BTN1, KC_BTN2,</td>
       </tr>
       <tr>
         <td id="L86" class="blob-num js-line-number" data-line-number="86"></td>
-        <td id="LC86" class="blob-code blob-code-inner js-file-line">		r21, r22, r23, r24, r25, \</td>
+        <td id="LC86" class="blob-code blob-code-inner js-file-line">                                  _______, _______,</td>
       </tr>
       <tr>
         <td id="L87" class="blob-num js-line-number" data-line-number="87"></td>
-        <td id="LC87" class="blob-code blob-code-inner js-file-line">		r31, r32, r33, r34, r35, \</td>
+        <td id="LC87" class="blob-code blob-code-inner js-file-line">                                  _______, _______,</td>
       </tr>
       <tr>
         <td id="L88" class="blob-num js-line-number" data-line-number="88"></td>
-        <td id="LC88" class="blob-code blob-code-inner js-file-line">		r41, r42, r43, r44, r45, \</td>
+        <td id="LC88" class="blob-code blob-code-inner js-file-line">  <span class="pl-c"><span class="pl-c">//</span> right hand</span></td>
       </tr>
       <tr>
         <td id="L89" class="blob-num js-line-number" data-line-number="89"></td>
-        <td id="LC89" class="blob-code blob-code-inner js-file-line">		          r53, r54,      \</td>
+        <td id="LC89" class="blob-code blob-code-inner js-file-line">    _______,  _______,  _______,  _______,  _______,  _______,</td>
       </tr>
       <tr>
         <td id="L90" class="blob-num js-line-number" data-line-number="90"></td>
-        <td id="LC90" class="blob-code blob-code-inner js-file-line">        r51, r52, \</td>
+        <td id="LC90" class="blob-code blob-code-inner js-file-line">    KC_CIRC,  KC_AMPR,  KC_PAST,  KC_LPRN,  KC_RPRN,  _______, </td>
       </tr>
       <tr>
         <td id="L91" class="blob-num js-line-number" data-line-number="91"></td>
-        <td id="LC91" class="blob-code blob-code-inner js-file-line">        r61, r62, \</td>
+        <td id="LC91" class="blob-code blob-code-inner js-file-line">    KC_SCLN,  KC_DLR,   KC_LCBR,  KC_RCBR,  _______,  _______, </td>
       </tr>
       <tr>
         <td id="L92" class="blob-num js-line-number" data-line-number="92"></td>
-        <td id="LC92" class="blob-code blob-code-inner js-file-line">		r63, r64  \</td>
+        <td id="LC92" class="blob-code blob-code-inner js-file-line">    KC_QUOT,  KC_EXLM,  KC_LBRC,  KC_RBRC,  _______,  _______, </td>
       </tr>
       <tr>
         <td id="L93" class="blob-num js-line-number" data-line-number="93"></td>
-        <td id="LC93" class="blob-code blob-code-inner js-file-line">	) \</td>
+        <td id="LC93" class="blob-code blob-code-inner js-file-line">    _______,  _______,  KC_LABK,  KC_RABK,  _______,  _______, </td>
       </tr>
       <tr>
         <td id="L94" class="blob-num js-line-number" data-line-number="94"></td>
-        <td id="LC94" class="blob-code blob-code-inner js-file-line">	{ \</td>
+        <td id="LC94" class="blob-code blob-code-inner js-file-line">                        _______,  _______,</td>
       </tr>
       <tr>
         <td id="L95" class="blob-num js-line-number" data-line-number="95"></td>
-        <td id="LC95" class="blob-code blob-code-inner js-file-line">		{ KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO }, \</td>
+        <td id="LC95" class="blob-code blob-code-inner js-file-line">                  KC_BTN1, KC_BTN2, </td>
       </tr>
       <tr>
         <td id="L96" class="blob-num js-line-number" data-line-number="96"></td>
-        <td id="LC96" class="blob-code blob-code-inner js-file-line">		{ KC_NO, l22, l23, l24, l25, l26 }, \</td>
+        <td id="LC96" class="blob-code blob-code-inner js-file-line">        _______, _______,</td>
       </tr>
       <tr>
         <td id="L97" class="blob-num js-line-number" data-line-number="97"></td>
-        <td id="LC97" class="blob-code blob-code-inner js-file-line">		{ KC_NO, l32, l33, l34, l35, l36 }, \</td>
+        <td id="LC97" class="blob-code blob-code-inner js-file-line">        _______, _______),</td>
       </tr>
       <tr>
         <td id="L98" class="blob-num js-line-number" data-line-number="98"></td>
-        <td id="LC98" class="blob-code blob-code-inner js-file-line">		{ KC_NO, l42, l43, l44, l45, l46 }, \</td>
+        <td id="LC98" class="blob-code blob-code-inner js-file-line">[_NAVIGATION] = <span class="pl-c1">KEYMAP_6x6</span>(</td>
       </tr>
       <tr>
         <td id="L99" class="blob-num js-line-number" data-line-number="99"></td>
-        <td id="LC99" class="blob-code blob-code-inner js-file-line">		{ KC_NO, KC_NO, l53, l54, l55, l56 }, \</td>
+        <td id="LC99" class="blob-code blob-code-inner js-file-line">  <span class="pl-c"><span class="pl-c">//</span> left hand</span></td>
       </tr>
       <tr>
         <td id="L100" class="blob-num js-line-number" data-line-number="100"></td>
-        <td id="LC100" class="blob-code blob-code-inner js-file-line">		{ KC_NO, KC_NO, l63, l64, l65, l66 }, \</td>
+        <td id="LC100" class="blob-code blob-code-inner js-file-line">    _______,  _______,  _______,  _______,  _______,  _______, </td>
       </tr>
       <tr>
         <td id="L101" class="blob-num js-line-number" data-line-number="101"></td>
-        <td id="LC101" class="blob-code blob-code-inner js-file-line">		{ KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO }, \</td>
+        <td id="LC101" class="blob-code blob-code-inner js-file-line">    KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6, </td>
       </tr>
       <tr>
         <td id="L102" class="blob-num js-line-number" data-line-number="102"></td>
-        <td id="LC102" class="blob-code blob-code-inner js-file-line">		{ r21, r22, r23, r24, r25, KC_NO }, \</td>
+        <td id="LC102" class="blob-code blob-code-inner js-file-line">    _______,  KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   _______,</td>
       </tr>
       <tr>
         <td id="L103" class="blob-num js-line-number" data-line-number="103"></td>
-        <td id="LC103" class="blob-code blob-code-inner js-file-line">		{ r31, r32, r33, r34, r35, KC_NO }, \</td>
+        <td id="LC103" class="blob-code blob-code-inner js-file-line">    _______,  KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  _______,</td>
       </tr>
       <tr>
         <td id="L104" class="blob-num js-line-number" data-line-number="104"></td>
-        <td id="LC104" class="blob-code blob-code-inner js-file-line">		{ r41, r42, r43, r44, r45, KC_NO }, \</td>
+        <td id="LC104" class="blob-code blob-code-inner js-file-line">    _______,  KC_MS_L,  KC_MS_D,  KC_MS_U,  KC_MS_R,  _______,</td>
       </tr>
       <tr>
         <td id="L105" class="blob-num js-line-number" data-line-number="105"></td>
-        <td id="LC105" class="blob-code blob-code-inner js-file-line">		{ r51, r52, r53, r54, KC_NO, KC_NO }, \</td>
+        <td id="LC105" class="blob-code blob-code-inner js-file-line">                        _______,  _______,</td>
       </tr>
       <tr>
         <td id="L106" class="blob-num js-line-number" data-line-number="106"></td>
-        <td id="LC106" class="blob-code blob-code-inner js-file-line">		{ r61, r62, r63, r64, KC_NO, KC_NO } \</td>
+        <td id="LC106" class="blob-code blob-code-inner js-file-line">                             KC_BTN1, KC_BTN2,</td>
       </tr>
       <tr>
         <td id="L107" class="blob-num js-line-number" data-line-number="107"></td>
-        <td id="LC107" class="blob-code blob-code-inner js-file-line">	}</td>
+        <td id="LC107" class="blob-code blob-code-inner js-file-line">                                  _______, _______,</td>
       </tr>
       <tr>
         <td id="L108" class="blob-num js-line-number" data-line-number="108"></td>
-        <td id="LC108" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">endif</span></td>
+        <td id="LC108" class="blob-code blob-code-inner js-file-line">                                  _______, _______,</td>
+      </tr>
+      <tr>
+        <td id="L109" class="blob-num js-line-number" data-line-number="109"></td>
+        <td id="LC109" class="blob-code blob-code-inner js-file-line">  <span class="pl-c"><span class="pl-c">//</span> right hand</span></td>
+      </tr>
+      <tr>
+        <td id="L110" class="blob-num js-line-number" data-line-number="110"></td>
+        <td id="LC110" class="blob-code blob-code-inner js-file-line">    _______,  _______,  _______,  _______,  _______,  _______,</td>
+      </tr>
+      <tr>
+        <td id="L111" class="blob-num js-line-number" data-line-number="111"></td>
+        <td id="LC111" class="blob-code blob-code-inner js-file-line">    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,</td>
+      </tr>
+      <tr>
+        <td id="L112" class="blob-num js-line-number" data-line-number="112"></td>
+        <td id="LC112" class="blob-code blob-code-inner js-file-line">    _______,  KC_MS_L,  KC_MS_D,  KC_MS_U,  KC_MS_R,  _______,</td>
+      </tr>
+      <tr>
+        <td id="L113" class="blob-num js-line-number" data-line-number="113"></td>
+        <td id="LC113" class="blob-code blob-code-inner js-file-line">    _______,  KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  _______, </td>
+      </tr>
+      <tr>
+        <td id="L114" class="blob-num js-line-number" data-line-number="114"></td>
+        <td id="LC114" class="blob-code blob-code-inner js-file-line">    _______,  KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   _______,</td>
+      </tr>
+      <tr>
+        <td id="L115" class="blob-num js-line-number" data-line-number="115"></td>
+        <td id="LC115" class="blob-code blob-code-inner js-file-line">                       _______,  _______,</td>
+      </tr>
+      <tr>
+        <td id="L116" class="blob-num js-line-number" data-line-number="116"></td>
+        <td id="LC116" class="blob-code blob-code-inner js-file-line">                  KC_BTN1, KC_BTN2, </td>
+      </tr>
+      <tr>
+        <td id="L117" class="blob-num js-line-number" data-line-number="117"></td>
+        <td id="LC117" class="blob-code blob-code-inner js-file-line">        _______, _______,</td>
+      </tr>
+      <tr>
+        <td id="L118" class="blob-num js-line-number" data-line-number="118"></td>
+        <td id="LC118" class="blob-code blob-code-inner js-file-line">        _______, _______)</td>
+      </tr>
+      <tr>
+        <td id="L119" class="blob-num js-line-number" data-line-number="119"></td>
+        <td id="LC119" class="blob-code blob-code-inner js-file-line">};</td>
+      </tr>
+      <tr>
+        <td id="L120" class="blob-num js-line-number" data-line-number="120"></td>
+        <td id="LC120" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="L121" class="blob-num js-line-number" data-line-number="121"></td>
+        <td id="LC121" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="L122" class="blob-num js-line-number" data-line-number="122"></td>
+        <td id="LC122" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span> void persistant_default_layer_set(uint16_t default_layer) {</span></td>
+      </tr>
+      <tr>
+        <td id="L123" class="blob-num js-line-number" data-line-number="123"></td>
+        <td id="LC123" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>   eeconfig_update_default_layer(default_layer);</span></td>
+      </tr>
+      <tr>
+        <td id="L124" class="blob-num js-line-number" data-line-number="124"></td>
+        <td id="LC124" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>   default_layer_set(default_layer);</span></td>
+      </tr>
+      <tr>
+        <td id="L125" class="blob-num js-line-number" data-line-number="125"></td>
+        <td id="LC125" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span> }</span></td>
+      </tr>
+      <tr>
+        <td id="L126" class="blob-num js-line-number" data-line-number="126"></td>
+        <td id="LC126" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="L127" class="blob-num js-line-number" data-line-number="127"></td>
+        <td id="LC127" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span> bool process_record_user(uint16_t keycode, keyrecord_t *record) {</span></td>
+      </tr>
+      <tr>
+        <td id="L128" class="blob-num js-line-number" data-line-number="128"></td>
+        <td id="LC128" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>   switch (keycode) {</span></td>
+      </tr>
+      <tr>
+        <td id="L129" class="blob-num js-line-number" data-line-number="129"></td>
+        <td id="LC129" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>         case COLEMAK:</span></td>
+      </tr>
+      <tr>
+        <td id="L130" class="blob-num js-line-number" data-line-number="130"></td>
+        <td id="LC130" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>           if (record-&gt;event.pressed) {</span></td>
+      </tr>
+      <tr>
+        <td id="L131" class="blob-num js-line-number" data-line-number="131"></td>
+        <td id="LC131" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>             #ifdef AUDIO_ENABLE</span></td>
+      </tr>
+      <tr>
+        <td id="L132" class="blob-num js-line-number" data-line-number="132"></td>
+        <td id="LC132" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>               PLAY_NOTE_ARRAY(tone_colemak, false, 0);</span></td>
+      </tr>
+      <tr>
+        <td id="L133" class="blob-num js-line-number" data-line-number="133"></td>
+        <td id="LC133" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>             #endif</span></td>
+      </tr>
+      <tr>
+        <td id="L134" class="blob-num js-line-number" data-line-number="134"></td>
+        <td id="LC134" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>             persistant_default_layer_set(1UL&lt;&lt;_COLEMAK);</span></td>
+      </tr>
+      <tr>
+        <td id="L135" class="blob-num js-line-number" data-line-number="135"></td>
+        <td id="LC135" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>           }</span></td>
+      </tr>
+      <tr>
+        <td id="L136" class="blob-num js-line-number" data-line-number="136"></td>
+        <td id="LC136" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>           return false;</span></td>
+      </tr>
+      <tr>
+        <td id="L137" class="blob-num js-line-number" data-line-number="137"></td>
+        <td id="LC137" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>           break;</span></td>
+      </tr>
+      <tr>
+        <td id="L138" class="blob-num js-line-number" data-line-number="138"></td>
+        <td id="LC138" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>         case LOWER:</span></td>
+      </tr>
+      <tr>
+        <td id="L139" class="blob-num js-line-number" data-line-number="139"></td>
+        <td id="LC139" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>           if (record-&gt;event.pressed) {</span></td>
+      </tr>
+      <tr>
+        <td id="L140" class="blob-num js-line-number" data-line-number="140"></td>
+        <td id="LC140" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>             layer_on(_LOWER);</span></td>
+      </tr>
+      <tr>
+        <td id="L141" class="blob-num js-line-number" data-line-number="141"></td>
+        <td id="LC141" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>             update_tri_layer(_LOWER, _RAISE, _ADJUST);</span></td>
+      </tr>
+      <tr>
+        <td id="L142" class="blob-num js-line-number" data-line-number="142"></td>
+        <td id="LC142" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>           } else {</span></td>
+      </tr>
+      <tr>
+        <td id="L143" class="blob-num js-line-number" data-line-number="143"></td>
+        <td id="LC143" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>             layer_off(_LOWER);</span></td>
+      </tr>
+      <tr>
+        <td id="L144" class="blob-num js-line-number" data-line-number="144"></td>
+        <td id="LC144" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>             update_tri_layer(_LOWER, _RAISE, _ADJUST);</span></td>
+      </tr>
+      <tr>
+        <td id="L145" class="blob-num js-line-number" data-line-number="145"></td>
+        <td id="LC145" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>           }</span></td>
+      </tr>
+      <tr>
+        <td id="L146" class="blob-num js-line-number" data-line-number="146"></td>
+        <td id="LC146" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>           return false;</span></td>
+      </tr>
+      <tr>
+        <td id="L147" class="blob-num js-line-number" data-line-number="147"></td>
+        <td id="LC147" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>           break;</span></td>
+      </tr>
+      <tr>
+        <td id="L148" class="blob-num js-line-number" data-line-number="148"></td>
+        <td id="LC148" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>         case RAISE:</span></td>
+      </tr>
+      <tr>
+        <td id="L149" class="blob-num js-line-number" data-line-number="149"></td>
+        <td id="LC149" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>           if (record-&gt;event.pressed) {</span></td>
+      </tr>
+      <tr>
+        <td id="L150" class="blob-num js-line-number" data-line-number="150"></td>
+        <td id="LC150" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>             layer_on(_RAISE);</span></td>
+      </tr>
+      <tr>
+        <td id="L151" class="blob-num js-line-number" data-line-number="151"></td>
+        <td id="LC151" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>             update_tri_layer(_LOWER, _RAISE, _ADJUST);</span></td>
+      </tr>
+      <tr>
+        <td id="L152" class="blob-num js-line-number" data-line-number="152"></td>
+        <td id="LC152" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>           } else {</span></td>
+      </tr>
+      <tr>
+        <td id="L153" class="blob-num js-line-number" data-line-number="153"></td>
+        <td id="LC153" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>             layer_off(_RAISE);</span></td>
+      </tr>
+      <tr>
+        <td id="L154" class="blob-num js-line-number" data-line-number="154"></td>
+        <td id="LC154" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>             update_tri_layer(_LOWER, _RAISE, _ADJUST);</span></td>
+      </tr>
+      <tr>
+        <td id="L155" class="blob-num js-line-number" data-line-number="155"></td>
+        <td id="LC155" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>           }</span></td>
+      </tr>
+      <tr>
+        <td id="L156" class="blob-num js-line-number" data-line-number="156"></td>
+        <td id="LC156" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>           return false;</span></td>
+      </tr>
+      <tr>
+        <td id="L157" class="blob-num js-line-number" data-line-number="157"></td>
+        <td id="LC157" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>           break;</span></td>
+      </tr>
+      <tr>
+        <td id="L158" class="blob-num js-line-number" data-line-number="158"></td>
+        <td id="LC158" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>       }</span></td>
+      </tr>
+      <tr>
+        <td id="L159" class="blob-num js-line-number" data-line-number="159"></td>
+        <td id="LC159" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>     return true;</span></td>
+      </tr>
+      <tr>
+        <td id="L160" class="blob-num js-line-number" data-line-number="160"></td>
+        <td id="LC160" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span> };</span></td>
+      </tr>
+      <tr>
+        <td id="L161" class="blob-num js-line-number" data-line-number="161"></td>
+        <td id="LC161" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
 </table>
 
@@ -1283,7 +1514,7 @@
       <ul class="BlobToolbar-dropdown dropdown-menu dropdown-menu-se mt-2">
         <li><clipboard-copy role="menuitem" class="dropdown-item" id="js-copy-lines" style="cursor:pointer;" data-original-text="Copy lines">Copy lines</clipboard-copy></li>
         <li><clipboard-copy role="menuitem" class="dropdown-item" id="js-copy-permalink" style="cursor:pointer;" data-original-text="Copy permalink">Copy permalink</clipboard-copy></li>
-        <li><a class="dropdown-item js-update-url-with-hash" id="js-view-git-blame" role="menuitem" href="/johnisenglish/qmk_firmware_dactylmanuform/blame/0a0c891a79fd726eb5fe5baee23df7874470c6b1/keyboards/dactyl-manuform/dactyl-manuform.h">View git blame</a></li>
+        <li><a class="dropdown-item js-update-url-with-hash" id="js-view-git-blame" role="menuitem" href="/johnisenglish/qmk_firmware_dactylmanuform/blame/0a0c891a79fd726eb5fe5baee23df7874470c6b1/keyboards/dactyl-manuform/keymaps/6x6-john/keymap.c">View git blame</a></li>
       </ul>
     </details-menu>
   </details>
@@ -1315,7 +1546,7 @@
 <div class="footer container-lg px-3" role="contentinfo">
   <div class="position-relative d-flex flex-justify-between pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
     <ul class="list-style-none d-flex flex-wrap ">
-      <li class="mr-3">&copy; 2018 <span title="0.23486s from unicorn-696bbf446c-gxvgt">GitHub</span>, Inc.</li>
+      <li class="mr-3">&copy; 2018 <span title="0.21719s from unicorn-84444fdd49-m7dtw">GitHub</span>, Inc.</li>
         <li class="mr-3"><a data-ga-click="Footer, go to terms, text:terms" href="https://github.com/site/terms">Terms</a></li>
         <li class="mr-3"><a data-ga-click="Footer, go to privacy, text:privacy" href="https://github.com/site/privacy">Privacy</a></li>
         <li class="mr-3"><a href="https://help.github.com/articles/github-security/" data-ga-click="Footer, go to security, text:security">Security</a></li>
