@@ -2,7 +2,7 @@
 #include "action_layer.h"
 #include "eeconfig.h"
 #include "quantum.h"
-#include QMK_KEYBOARD_H
+// #include QMK_KEYBOARD_H
 
 extern keymap_config_t keymap_config;
 
@@ -62,36 +62,29 @@ extern keymap_config_t keymap_config;
 
 #define STAR 0x2605 // ★
 
-enum custom_keycodes {
-  COLEMAK = SAFE_RANGE,
-  LOWER,
-  RAISE,
-};
-
-
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_BASE] = KEYMAP_6x6(
   // left hand
-   KC_F12,  KC_F1,   KC_F2,   KC_F3,    KC_F4,  KC_F5,
-   KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,
+   KC_F12,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,
+   KC_ESC,  KC_1,    KC_2,    KC_3,   KC_4,   KC_5, 
    ALT_TIL, KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,
    KC_RCTL, KC_A,    KC_R,    KC_S,    KC_T,    KC_G,
    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,
                              KC_BSPC, KC_DEL,
                                  KC_ENTER, KC_SPC,
-                                   LT(_DN_L), LT(_UP_L),
-                                   LT(_SMSL), LT(_SM_L),
+                                   MO(_DN_L), MO(_UP_L),
+                                   MO(_SMSL), MO(_SM_L),
   // right hand
-    KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
-    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
-    KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, ALT_DEL,
-    KC_M,    KC_N,    KC_E,    KC_I,    KC_O,    KC_QUOT,
-    KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_LSFT,
+    KC_F6,   KC_F7,   KC_F8,  KC_F9,   KC_F10,  KC_F11,
+    KC_6,    KC_7,    KC_8,   KC_9,    KC_0,    KC_BSPC,
+    KC_J,    KC_L,    KC_U,   KC_Y,    KC_SCLN, ALT_DEL,
+    KC_M,    KC_N,    KC_E,   KC_I,    KC_O,    KC_QUOT,
+    KC_K,    KC_H,    KC_COMM, KC_DOT, KC_SLSH, KC_LSFT,
                        KC_BSPC, KC_DEL,
                 KC_SPC, KC_ENTER,
-        LT(_UP_R), LT(_DN_R),
-        LT(_SM_R), LT(_SMSR),
+        MO(_UP_R), MO(_DN_R),
+        MO(_SM_R), MO(_SMSR)),
 [_UP_L] = KEYMAP_6x6(
   // left hand
     _______,   _______, _______, _______, _______, _______,
@@ -109,7 +102,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, _______,
-                        _______,     _______,
+                        _______, _______,
                   _______, _______,
         _______, _______,
         _______, _______),
@@ -133,7 +126,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                        _______,  _______,
                   _______,  _______,
         _______, _______,
-        _______, _______)
+        _______, _______),
 [_UPSL] = KEYMAP_6x6(
   // left hand
     _______, _______, _______, _______, _______, _______,
@@ -151,10 +144,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, _______,
-                       _______,  _______,
-                  _______,  _______,
+                        _______, _______,
+                  _______, _______,
         _______, _______,
-        _______, _______)
+        _______, _______),
 [_UPSR] = KEYMAP_6x6(
   // left hand
     _______, _______, _______, _______, _______, _______,
@@ -175,14 +168,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                        _______,  _______,
                   _______,  _______,
         _______, _______,
-        _______, _______)
+        _______, _______),
 [_DN_L] = KEYMAP_6x6(
   // left hand
     _______, _______, _______, _______, _______, _______,
-    KC_F12,  KC_F1,   KC_F2,   KC_F3,    KC_F4,  KC_F5,
+    KC_F12,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,
     _______, LCTL(KC_Q), KC_PGUP, KC_UP, KC_PGDN, KC_HOME,
     _______, LCTL(KC_A), KC_LEFT, KC_DOWN, KC_RGHT, KC_END,
-    MO(_DNSL), LCTL(KC_Z), LCTL(KC_X), LCTL(KC_C), LCTL(KC_D),
+    MO(_DNSL), _______, _______, _______, _______, _______,
                         _______,  _______,
                               _______, _______,
                                    _______, _______,
@@ -193,9 +186,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, _______,
-                  _______,  _______,
+                        _______, _______,
+                  _______, _______,
         _______, _______,
-        _______, _______)
+        _______, _______),
 [_DN_R] = KEYMAP_6x6(
   // left hand
     _______, _______, _______, _______, _______, _______,
@@ -216,7 +210,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                        _______,  _______,
                   _______,  _______,
         _______, _______,
-        _______, _______)
+        _______, _______),
 [_DNSL] = KEYMAP_6x6(
   // left hand
     _______, _______, _______, _______, _______, _______,
@@ -234,10 +228,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, _______,
-                       _______,  _______,
-                  _______,  _______,
+                        _______, _______,
+                  _______, _______,
         _______, _______,
-        _______, _______)
+        _______, _______),
 [_DNSR] = KEYMAP_6x6(
   // left hand
     _______, _______, _______, _______, _______, _______,
@@ -258,7 +252,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                        _______,  _______,
                   _______,  _______,
         _______, _______,
-        _______, _______)
+        _______, _______),
 [_EX_L] = KEYMAP_6x6(
   // left hand
     _______, _______, _______, _______, _______, _______,
@@ -276,10 +270,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, _______,
-                       _______,  _______,
-                  _______,  _______,
+                        _______, _______,
+                  _______, _______,
         _______, _______,
-        _______, _______)
+        _______, _______),
 [_EX_R] = KEYMAP_6x6(
   // left hand
     _______, _______, _______, _______, _______, _______,
@@ -300,15 +294,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                        _______,  _______,
                   _______,  _______,
         _______, _______,
-        _______, _______)
+        _______, _______),
 [_SM_L] = KEYMAP_6x6(
   // left hand
     _______, _______, _______, _______, _______, _______,
-    RESET, UC(8543), UC(189), UC(8531), UC(188), UC(8533),
-    _______, UC(952), UC(969), UC(966), UC(960), UC(946),
-    _______, UC(945), UC(961), UC(963), UC(964), UC(947),
-    MO(_SMSL), UC(950), UC(967), UC(162), UC(948), UC(8711),
-                        _______,  _______,
+    RESET, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______,
+                        _______, _______,
                               _______, _______,
                                    _______, _______,
                                    _______, _______,
@@ -318,10 +312,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, _______,
-                       _______,  _______,
-                  _______,  _______,
+                        _______, _______,
+                  _______, _______,
         _______, _______,
-        _______, _______)
+        _______, _______),
 [_SM_R] = KEYMAP_6x6(
   // left hand
     _______, _______, _______, _______, _______, _______,
@@ -335,53 +329,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                    _______, _______,
   // right hand
     _______, _______, _______, _______, _______, _______,
-    UC(8537), UC(8528), UC(8539), UC(8529), UC(8530), RESET,
-    UC(958), UC(955), UC(965), UC(968), UC(177), _______,
-    UC(956), UC(8470), UC(949), UC(8734), _______, _______,
-    UC(922), UC(951), UC(8804), UC(8805), UC(247), MO(_SMSR),
-                       _______,  _______,
-                  _______,  _______,
+    _______, _______, _______, _______, _______, RESET,
+    _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______,
+                        _______, _______,
+                  _______, _______,
         _______, _______,
-        _______, _______)
+        _______, _______),
 };
 
 
-// void persistant_default_layer_set(uint16_t default_layer) {
-//   eeconfig_update_default_layer(default_layer);
-//   default_layer_set(default_layer);
-// }
-
-// bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-//   switch (keycode) {
-//         case COLEMAK:
-//           if (record->event.pressed) {
-//             #ifdef AUDIO_ENABLE
-//               PLAY_NOTE_ARRAY(tone_colemak, false, 0);
-//             #endif
-//             persistant_default_layer_set(1UL<<_COLEMAK);
-//           }
-//           return false;
-//           break;
-//         case LOWER:
-//           if (record->event.pressed) {
-//             layer_on(_LOWER);
-//             update_tri_layer(_LOWER, _RAISE, _ADJUST);
-//           } else {
-//             layer_off(_LOWER);
-//             update_tri_layer(_LOWER, _RAISE, _ADJUST);
-//           }
-//           return false;
-//           break;
-//         case RAISE:
-//           if (record->event.pressed) {
-//             layer_on(_RAISE);
-//             update_tri_layer(_LOWER, _RAISE, _ADJUST);
-//           } else {
-//             layer_off(_RAISE);
-//             update_tri_layer(_LOWER, _RAISE, _ADJUST);
-//           }
-//           return false;
-//           break;
-//       }
-//     return true;
-// };
+void persistant_default_layer_set(uint16_t default_layer) {
+  eeconfig_update_default_layer(default_layer);
+  default_layer_set(default_layer);
+}

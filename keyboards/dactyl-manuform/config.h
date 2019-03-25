@@ -24,20 +24,20 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define VENDOR_ID       0xFEED
 #define PRODUCT_ID      0x3060
 #define DEVICE_VER      0x0001
-#define MANUFACTURER    Mystery
+#define MANUFACTURER    GES
 #define PRODUCT         Dactyl-Manuform keyboard
 #define DESCRIPTION     An ergonomic split keyboard
 
 /* key matrix size */
 // Rows are doubled-up
-#define MATRIX_ROWS 12
+#define MATRIX_ROWS 14
 #define MATRIX_COLS 6
 
 // wiring of each half
-#define MATRIX_ROW_PINS { D4, C6, D7, E6, B4, B5 }
-#define MATRIX_COL_PINS { F6, F7, B1, B3, B2, B6 }
-// #define MATRIX_COL_PINS { B6, B2, B3, B1, F7, F6 } //uncomment this line and comment line above if you need to reverse left-to-right key order
-
+//#define MATRIX_ROW_PINS { B0, B1, B2, B3, B7, D1, D2 }
+#define MATRIX_ROW_PINS { D2, D1, B7, B3, B2, B1, B0 } // correct for right hand
+//#define MATRIX_COL_PINS { F0, F1, F4, F5, F6, F7 } 
+#define MATRIX_COL_PINS { F7, F6, F5, F4, F1, F0 } // correct for right hand
 #define CATERINA_BOOTLOADER
 
 /* COL2ROW or ROW2COL */
@@ -62,12 +62,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     keyboard_report->mods == (MOD_BIT(KC_LSHIFT) | MOD_BIT(KC_RSHIFT)) \
 )
 
+#define PERMISSIVE_HOLD
+
+
 /* ws2812 RGB LED */
-#define RGB_DI_PIN D3
-#define RGBLIGHT_TIMER
-#define RGBLED_NUM 12    // Number of LEDs
-#define ws2812_PORTREG  PORTD
-#define ws2812_DDRREG   DDRD
+// #define RGB_DI_PIN D3
+// #define RGBLIGHT_TIMER
+// #define RGBLED_NUM 12    // Number of LEDs
+// #define ws2812_PORTREG  PORTD
+// #define ws2812_DDRREG   DDRD
 
 /*
  * Feature disable options
